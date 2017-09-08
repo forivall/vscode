@@ -564,7 +564,7 @@ export class Item extends Events.EventEmitter {
 	}
 
 	private sort(elements: any[]): any[] {
-		if (this.context.sorter) {
+		if (this.context.sorter && !elements.every((element /* : IFileStat */) => element.isRoot)) {
 			return elements.sort((element, otherElement) => {
 				return this.context.sorter.compare(this.context.tree, element, otherElement);
 			});
