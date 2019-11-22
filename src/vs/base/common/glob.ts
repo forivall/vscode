@@ -575,6 +575,8 @@ function parsedExpression(expression: IExpression, options: IGlobOptions): Parse
 				if (!basename) {
 					basename = paths.basename(path);
 				}
+				// TODO: the basename should depend on the pattern, if the pattern contains an
+				// extension to match, then it should be used instead
 				if (!name) {
 					name = basename.substr(0, basename.length - paths.extname(path).length);
 				}
